@@ -30,35 +30,57 @@ html, body {
     scroll-behavior: smooth;
 }
 
-/* --- FONDO ATMOSFÉRICO (COMPATIBLE PC/ANDROID) --- */
+/* --- FONDO ATMOSFÉRICO CON MOVIMIENTO REAL --- */
 .fixed-bg {
     position: fixed;
     top: 0; left: 0;
     width: 100vw; height: 100vh;
     z-index: -1;
     pointer-events: none;
+    background-color: var(--black);
+    /* Malla de puntos sutil */
     background-image: radial-gradient(var(--border) 1px, transparent 1px);
-    background-size: 40px 40px;
+    background-size: 50px 50px;
+    background-position: center;
+    /* Animación de la malla */
+    animation: gridMove 20s linear infinite;
 }
 
 .fixed-bg::after {
-    content: "◈  { }  ◆  ( )  //  < >  [ ]  ++";
+    content: "◈  { }  ◆  ( )  //  < >  [ ]  ++  ◈  { }  ◆  ( )  //  < >  [ ]  ++";
     position: absolute;
-    width: 200%; height: 200%;
-    top: -50%; left: -50%;
+    width: 300%; /* Triple de ancho para que no se vea el corte */
+    height: 300%;
+    top: -100%;
+    left: -100%;
     font-family: 'Space Mono', monospace;
-    font-size: 12rem;
-    color: rgba(255, 255, 255, 0.015);
+    font-size: 10rem;
+    color: rgba(255, 255, 255, 0.02);
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     filter: blur(8px);
-    animation: rotateMobile 80s linear infinite;
+    /* Animación de los iconos */
+    animation: floatingSpace 60s linear infinite;
 }
 
-@keyframes rotateMobile {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+/* --- ANIMACIONES QUE NO SE QUEDAN TIESAS --- */
+
+/* Movimiento de la malla de puntos */
+@keyframes gridMove {
+    from { background-position: 0 0; }
+    to { background-position: 50px 50px; }
+}
+
+/* Movimiento fluido de los iconos (Diagonal Infinito) */
+@keyframes floatingSpace {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(10%, 10%); /* Se desplaza suavemente */
+    }
 }
 
 /* --- NAVEGACIÓN --- */
