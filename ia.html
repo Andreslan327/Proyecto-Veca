@@ -3,73 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>IA // NEXOS V30</title>
+    <title>IA // SISTEMAS COGNITIVOS // V30</title>
+    
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&family=Inter:wght@200;400;700;900&family=Space+Mono&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,600&family=Inter:wght@200;400;700;900&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="nexo-ia">
 
     <div class="fixed-bg"></div>
 
     <nav class="glass-nav animate__animated animate__fadeInDown">
         <div class="nav-inner">
             <div class="logo-group">
-                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                <a href="index.html" class="brand-link">
                     <span class="brand">NEXOS</span>
                     <span class="dot"></span>
                 </a>
             </div>
             <div class="sys-info">
-                <span class="version">NEXO_01_AI</span>
-                <span class="status">COGNITIVE_LINK_ESTABLISHED</span>
+                <span class="version">NODE_01_COGNITIVE</span>
+                <span class="status">AI_CORE_ACTIVE</span>
             </div>
         </div>
     </nav>
 
     <header class="main-hero">
         <div class="hero-content">
-            <a href="index.html" class="back-btn animate__animated animate__fadeIn">← VOLVER AL HUB</a>
-            <p class="pre-title animate__animated animate__fadeInUp">INTELIGENCIA COMPUTACIONAL AVANZADA</p>
-            <h1 class="animate__animated animate__fadeInUp">SISTEMAS <br><span class="italic">Cognitivos</span></h1>
-            <div class="hero-line animate__animated animate__stretch"></div>
+            <a href="index.html" class="back-btn animate__animated animate__fadeIn">
+                <span class="arrow">←</span> RETORNAR AL HUB
+            </a>
+            <div class="hero-text-wrapper">
+                <p class="pre-title animate__animated animate__fadeInUp">ESTRATOS DE INTELIGENCIA SINTÉTICA</p>
+                <h1 class="animate__animated animate__fadeInUp">SISTEMAS <br><span class="italic">Cognitivos</span></h1>
+                <div class="hero-line animate__animated animate__stretch"></div>
+            </div>
         </div>
     </header>
 
     <main class="info-grid">
+        
         <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
-            <div class="card-id">01</div>
-            <h4>ARQUITECTURA TRANSFORMER</h4>
-            <p>La revolución actual se cimenta en el mecanismo de auto-atención de los Transformers. Esta arquitectura permite que modelos como GPT-4 y Claude procesen secuencias de datos de manera paralela, comprendiendo relaciones semánticas profundas en contextos masivos. A diferencia de las redes neuronales antiguas, los Transformers asignan pesos de importancia a cada token, permitiendo una "comprensión" situacional del lenguaje humano sin precedentes.</p>
+            <div class="card-header">
+                <span class="card-id">01</span>
+                <span class="card-tag">// ARCHITECTURE</span>
+            </div>
+            <h4>TRANSFORMERS Y AUTO-ATENCIÓN</h4>
+            <p>La arquitectura Transformer ha redefinido el procesamiento del lenguaje mediante mecanismos de <strong>Self-Attention</strong>. A diferencia de las redes recurrentes (RNN), los Transformers permiten el procesamiento paralelo de secuencias masivas, asignando pesos dinámicos a cada token para capturar dependencias contextuales de largo alcance. Este avance es la base de modelos fundacionales como GPT-4 y Claude 3.5.</p>
         </article>
 
+        
+
         <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
-            <div class="card-id">02</div>
+            <div class="card-header">
+                <span class="card-id">02</span>
+                <span class="card-tag">// MULTIMODAL</span>
+            </div>
             <h4>MULTIMODALIDAD NATIVA</h4>
-            <p>La IA ha trascendido el procesamiento de texto plano para convertirse en sistemas multimodales capaces de razonar simultáneamente sobre video, audio y código. Estos modelos integran diversos espacios latentes en una sola capa de inferencia, permitiendo que una inteligencia artificial pueda interpretar un examen médico visual, generar un diagnóstico escrito y sugerir un protocolo quirúrgico en una sola operación computacional coordinada.</p>
+            <p>La evolución hacia sistemas multimodales permite la unificación de diversos <strong>espacios latentes</strong> (texto, visión, audio) en una sola capa de inferencia. Esto no es solo procesamiento conjunto, sino razonamiento cruzado: la capacidad de una IA para interpretar una radiografía médica, correlacionarla con historial clínico escrito y generar una respuesta por voz en una operación atómica coordinada.</p>
         </article>
 
         <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
             <div class="card-id">03</div>
             <h4>ALINEACIÓN Y RLHF</h4>
-            <p>El aprendizaje por refuerzo a partir de la retroalimentación humana (RLHF) es el pilar de la seguridad en la IA moderna. Este proceso de "alineación" asegura que los modelos de lenguaje sigan instrucciones éticas y eviten comportamientos emergentes peligrosos. La investigación actual se centra en la interpretabilidad mecanística: abrir la "caja negra" neuronal para entender exactamente por qué una IA toma una decisión específica.</p>
+            <p>El <strong>Aprendizaje por Refuerzo con Retroalimentación Humana (RLHF)</strong> es el protocolo crítico para la alineación ética. Mediante la optimización de políticas de recompensa, los modelos se ajustan para maximizar la utilidad y seguridad. La investigación actual en <em>Constitutional AI</em> busca que los modelos se auto-supervisen bajo un marco de principios lógicos predefinidos.</p>
         </article>
 
         <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.8s">
             <div class="card-id">04</div>
             <h4>REDES NEURONALES LÍQUIDAS</h4>
-            <p>Inspiradas en el sistema nervioso de organismos simples, las redes neuronales líquidas representan el futuro del procesamiento en tiempo real. A diferencia de los modelos tradicionales con parámetros estáticos, las redes líquidas ajustan sus ecuaciones subyacentes dinámicamente según el flujo de datos de entrada. Esto las hace excepcionalmente eficientes para la conducción autónoma y la robótica, donde la adaptabilidad constante es vital.</p>
+            <p>Las <strong>Liquid Neural Networks (LNN)</strong> representan un cambio de paradigma hacia el cómputo continuo. Inspiradas en organismos biológicos simples, sus parámetros son ecuaciones diferenciales que se adaptan en tiempo real al flujo de datos. Son ideales para robótica y conducción autónoma, donde la adaptabilidad ante escenarios imprevistos supera la rigidez de los modelos estáticos.</p>
         </article>
 
         <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 1s">
             <div class="card-id">05</div>
-            <h4>AGENTES AUTÓNOMOS</h4>
-            <p>Estamos migrando de una IA pasiva a agentes autónomos capaces de ejecutar flujos de trabajo complejos sin supervisión. Estos agentes poseen memoria a largo plazo (RAG) y la capacidad de utilizar herramientas externas como navegadores, terminales de código y APIs financieras. La meta final es la AGI (Inteligencia Artificial General), un sistema capaz de igualar o superar la capacidad cognitiva humana en cualquier tarea intelectualmente exigente.</p>
+            <h4>AGENTES Y AGI</h4>
+            <p>Estamos presenciando el surgimiento de <strong>Agentes Autónomos</strong> con capacidad de planificación multietapa y uso de herramientas (RAG). Estos sistemas no solo responden, sino que ejecutan flujos de trabajo en entornos externos. El camino hacia la Inteligencia Artificial General (AGI) se centra en la capacidad de generalización fuera de la distribución de entrenamiento original.</p>
         </article>
+
     </main>
 
     <footer class="v30-footer">
-        <p>© 2025 NEXOS COGNITIVE DIVISION. PROTOCOLO V30.10</p>
+        <div class="footer-content">
+            <p>ESTADO DEL SISTEMA: <span class="accent-text">NOMINAL</span></p>
+            <p>© 2025 NEXOS DIGITAL SYSTEMS // COGNITIVE CORE V30.PAPEADO</p>
+        </div>
     </footer>
 
 </body>
