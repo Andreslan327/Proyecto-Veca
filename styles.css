@@ -1,3 +1,15 @@
+/* --- RESET & BASICS --- */
+:root {
+    --bg-dark: #050505;
+    --bg-card: rgba(30, 30, 30, 0.6);
+    --accent-primary: #00f2ff; /* Cyan Cibernético */
+    --accent-secondary: #bd00ff; /* Morado Neón */
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,83 +17,268 @@
 }
 
 body {
-    background: linear-gradient(180deg, #0a0a0a, #1a1a1a);
-    color: #e0e0e0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-body);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* HEADER */
-header {
-    background: linear-gradient(135deg, #111, #222);
-    color: #fff;
-    padding: 2rem 0;
+/* --- BACKGROUND ANIMATION --- */
+/* Un fondo sutil con gradientes que se mueven */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 20%, rgba(189, 0, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.08) 0%, transparent 40%);
+    z-index: -1;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    padding: 2rem;
+    position: relative;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    background: linear-gradient(90deg, #aaa, #fff);
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(to bottom, var(--accent-primary), transparent);
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -2px;
+}
+
+/* Texto con gradiente */
+.gradient-text {
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(0, 242, 255, 0.3);
 }
 
-/* CARD SECTIONS */
-.card-section {
-    padding: 2rem;
+.hero p {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+}
+
+.btn-glow {
+    text-decoration: none;
+    color: var(--bg-dark);
+    background: var(--text-main);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.btn-glow:hover {
+    transform: scale(1.05);
+    background: var(--accent-primary);
+    box-shadow: 0 0 40px rgba(0, 242, 255, 0.6);
+}
+
+/* --- TIMELINE SECTION --- */
+.timeline-container {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Línea central vertical */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, var(--accent-secondary), transparent);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end; /* Por defecto a la derecha (para alternar luego) */
+    padding-bottom: 4rem;
+    width: 50%;
+    position: relative;
 }
 
+/* Alternancia Izquierda/Derecha */
+.timeline-item.left {
+    align-self: flex-start;
+    justify-content: flex-end;
+    padding-right: 3rem;
+    text-align: right;
+}
+
+.timeline-item.right {
+    align-self: flex-end;
+    justify-content: flex-start;
+    padding-left: 3rem;
+    text-align: left;
+    margin-left: 50%; /* Mueve el contenedor a la mitad derecha */
+}
+
+/* Punto en la línea de tiempo */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 16px;
+    height: 16px;
+    background: var(--bg-dark);
+    border: 3px solid var(--accent-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--accent-primary);
+    z-index: 10;
+}
+
+.timeline-item.left::after { right: -11px; }
+.timeline-item.right::after { left: -11px; }
+
+/* --- CARD DESIGN (GLASSMORPHISM) --- */
 .card {
-    background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-    max-width: 800px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 16px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6), 
+                inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.year {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    border-bottom: 2px solid var(--accent-secondary);
 }
 
 .card h2 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    color: #f5f5f5;
-    background: linear-gradient(90deg, #bbb, #fff);
+    color: #fff;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Tags al final de la tarjeta */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: inherit; /* Sigue la alineación del padre */
+}
+
+.tags span {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--accent-primary);
+    border: 1px solid rgba(0, 242, 255, 0.2);
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(to top, #000, transparent);
+}
+
+footer h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #fff, #888);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.card p, .card ul {
-    color: #cfcfcf;
-    font-size: 1.1rem;
-}
+/* --- RESPONSIVE DESIGN (MÓVILES) --- */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.8rem; }
+    
+    .timeline-container::before {
+        left: 20px; /* Mueve la línea a la izquierda */
+    }
 
-.card ul {
-    list-style: none;
-    padding: 0;
-}
+    .timeline-item {
+        width: 100%;
+        padding-left: 3rem;
+        padding-right: 0;
+        margin-left: 0;
+        text-align: left;
+    }
 
-.card ul li {
-    margin: 0.5rem 0;
-    background: linear-gradient(90deg, #333, #444);
-    padding: 0.5rem;
-    border-radius: 6px;
-}
+    .timeline-item.left, .timeline-item.right {
+        align-self: flex-start;
+        justify-content: flex-start;
+        text-align: left;
+    }
 
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 1rem;
-    background: linear-gradient(135deg, #111, #1a1a1a);
-    color: #888;
-    margin-top: 2rem;
-    border-top: 1px solid #333;
+    .timeline-item.left { padding-right: 0; }
+    .timeline-item.right { padding-left: 3rem; } /* Asegura espacio para la línea */
+
+    /* Ajustar puntos de la línea */
+    .timeline-item.left::after, .timeline-item.right::after {
+        left: 11px; /* Alineados con la línea izquierda */
+        right: auto;
+    }
+
+    .tags { justify-content: flex-start; }
 }
