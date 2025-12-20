@@ -1,4 +1,9 @@
-/* --- VARIABLES --- */
+/* SYSTEM V20.10 // ABSOLUTE ENTITY
+   - Full PC 4-Column Grid
+   - Mobile Android Optimized
+   - Atmospheric Background 
+*/
+
 :root {
     --black: #050505;
     --gray: #0f0f0f;
@@ -8,51 +13,47 @@
     --border: rgba(255,255,255,0.08);
 }
 
-/* --- RESET TOTAL --- */
+/* --- RESET & ESTRUCTURA CRÍTICA --- */
 * { 
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
+    -webkit-font-smoothing: antialiased;
 }
 
 html, body {
     width: 100%;
-    overflow-x: hidden; /* Evita el scroll lateral en Android */
+    overflow-x: hidden;
     background-color: var(--black);
     color: var(--text);
     font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
 }
 
-/* --- FONDO COMPATIBLE CON MÓVIL --- */
+/* --- FONDO ATMOSFÉRICO (COMPATIBLE PC/ANDROID) --- */
 .fixed-bg {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
     z-index: -1;
     pointer-events: none;
-    /* Malla de puntos sutil */
     background-image: radial-gradient(var(--border) 1px, transparent 1px);
-    background-size: 30px 30px;
+    background-size: 40px 40px;
 }
 
-/* Iconos flotantes optimizados para no laguear el cel */
 .fixed-bg::after {
-    content: "◈  { }  ◆  ( )  //";
+    content: "◈  { }  ◆  ( )  //  < >  [ ]  ++";
     position: absolute;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
+    width: 200%; height: 200%;
+    top: -50%; left: -50%;
     font-family: 'Space Mono', monospace;
-    font-size: 10rem;
-    color: rgba(255, 255, 255, 0.02);
+    font-size: 12rem;
+    color: rgba(255, 255, 255, 0.015);
     display: flex;
     align-items: center;
     justify-content: space-around;
-    filter: blur(5px);
-    animation: rotateMobile 60s linear infinite;
+    filter: blur(8px);
+    animation: rotateMobile 80s linear infinite;
 }
 
 @keyframes rotateMobile {
@@ -60,11 +61,11 @@ html, body {
     to { transform: rotate(360deg); }
 }
 
-/* --- NAV --- */
+/* --- NAVEGACIÓN --- */
 .glass-nav {
     position: fixed;
     top: 0; width: 100%;
-    padding: 20px 5%;
+    padding: 25px 5%;
     background: rgba(5, 5, 5, 0.9);
     z-index: 1000;
     border-bottom: 1px solid var(--border);
@@ -73,76 +74,163 @@ html, body {
 .nav-inner {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.brand { font-weight: 800; letter-spacing: 4px; font-size: 0.8rem; }
+.version { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--sub); }
+
+/* --- HERO SECTION --- */
+.main-hero {
+    padding: 160px 20px 60px 20px;
+    text-align: center;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.brand { font-weight: 800; letter-spacing: 3px; font-size: 0.75rem; }
-
-/* --- HEROES --- */
-.main-hero {
-    padding: 120px 20px 40px 20px;
-    text-align: center;
-}
-
 .main-hero h1 {
-    font-size: clamp(2.2rem, 8vw, 5rem);
+    font-size: clamp(2.5rem, 8vw, 6rem);
     font-weight: 800;
-    line-height: 1;
+    line-height: 0.9;
+    letter-spacing: -3px;
+    text-transform: uppercase;
     margin-bottom: 20px;
-    letter-spacing: -1px;
 }
 
 .italic { 
     font-family: 'Cormorant Garamond', serif; 
     font-style: italic; 
     color: var(--sub);
+    text-transform: none;
 }
 
-/* --- GRIDS (ADAPTACIÓN ANDROID) --- */
-.menu-grid, .info-grid {
-    display: flex;
-    flex-direction: column; /* En móvil, lista vertical */
-    gap: 20px;
-    padding: 0 20px 80px 20px;
-    max-width: 800px;
+.main-hero p {
+    color: var(--sub);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
-/* En PC vuelve a ser rejilla */
-@media (min-width: 768px) {
-    .menu-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-/* --- TARJETAS --- */
-.menu-card, .info-card {
-    background: var(--gray);
-    border: 1px solid var(--border);
-    padding: 35px 25px;
-    text-decoration: none;
-    color: white;
-    transition: 0.3s;
-}
-
-/* En Android quitamos el hover de escala porque a veces se queda pegado */
-@media (hover: hover) {
-    .menu-card:hover, .info-card:hover {
-        border-color: var(--accent);
-        transform: translateY(-5px);
-    }
-}
-
-.menu-card h3 { font-size: 1.4rem; margin-bottom: 10px; }
-.info-card h4 { color: var(--accent); margin-bottom: 15px; font-family: 'Space Mono'; font-size: 0.9rem; }
-.info-card p { font-size: 0.95rem; color: #ccc; line-height: 1.6; }
-
+/* --- BOTÓN VOLVER --- */
 .back-btn {
     display: inline-block;
     color: var(--accent);
     text-decoration: none;
-    font-size: 0.8rem;
-    margin-bottom: 15px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: 1px solid var(--accent);
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    transition: 0.3s;
+}
+
+.back-btn:hover { background: var(--accent); color: var(--black); }
+
+/* --- GRID PRINCIPAL (EL CORAZÓN) --- */
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 columna en móvil */
+    gap: 20px;
+    padding: 0 5% 100px 5%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* --- PC: 4 COLUMNAS PERFECTAS --- */
+@media (min-width: 1024px) {
+    .menu-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* --- TABLET: 2 COLUMNAS --- */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* --- TARJETAS NEXO (CENTRADO ABSOLUTO) --- */
+.menu-card {
+    height: 450px;
+    background: rgba(15, 15, 15, 0.7);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical */
+    align-items: center;     /* Centrado horizontal */
+    text-align: center;
+    padding: 40px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-card:hover {
+    border-color: #fff;
+    transform: translateY(-10px);
+    background: rgba(25, 25, 25, 0.9);
+}
+
+.menu-card h3 { 
+    font-size: 1.6rem; 
+    font-weight: 800; 
+    text-transform: uppercase; 
+    margin-bottom: 15px; 
+}
+
+.menu-card span { 
+    font-family: 'Space Mono', monospace; 
+    font-size: 0.7rem; 
+    letter-spacing: 3px; 
+    color: var(--accent); 
+}
+
+/* --- GRID DE INFORMACIÓN (PÁGINAS INTERNAS) --- */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 20px 5% 100px 5%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.info-card {
+    background: rgba(15, 15, 15, 0.8);
+    border: 1px solid var(--border);
+    padding: 50px 40px;
+    transition: 0.4s;
+}
+
+.info-card:hover {
+    border-color: rgba(255,255,255,0.3);
+}
+
+.info-card h4 { 
+    font-family: 'Space Mono', monospace; 
+    color: var(--accent); 
+    margin-bottom: 20px; 
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.info-card p { 
+    color: var(--sub); 
+    font-size: 1rem; 
+    line-height: 1.8; 
+}
+
+/* --- ANDROID FIXES FINALES --- */
+@media (max-width: 768px) {
+    .main-hero { padding-top: 130px; }
+    .main-hero h1 { letter-spacing: -1px; }
+    .menu-card { height: 300px; } /* Más cortas en móvil para scroll rápido */
+    .info-card { padding: 35px 25px; }
 }
