@@ -1,188 +1,127 @@
-/* --- ESTILO HACKER V.FINAL --- */
 :root {
-    --primary: #00ff41; /* Verde terminal */
-    --bg: #050505;
-    --surface: #111;
-    --border: #222;
-    --text: #e0e0e0;
+    --black: #050505;
+    --gray: #111111;
+    --text: #ffffff;
+    --accent: #ffffff;
+    --sub: rgba(255,255,255,0.5);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    background-color: var(--bg);
+    background-color: var(--black);
     color: var(--text);
-    font-family: 'Outfit', sans-serif;
-    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
     overflow-x: hidden;
 }
 
-/* --- EFECTO SCANNER --- */
-.scanner {
+.italic { font-family: 'Cormorant Garamond', serif; font-style: italic; text-transform: none; }
+
+/* --- NAVEGACIÓN --- */
+.glass-nav {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 2px;
-    background: rgba(0, 255, 65, 0.2);
-    box-shadow: 0 0 15px var(--primary);
-    animation: scan 3s linear infinite;
-    z-index: 999;
+    width: 100%;
+    top: 0;
+    padding: 30px 5%;
+    z-index: 1000;
 }
 
-@keyframes scan {
-    0% { top: -10px; }
-    100% { top: 100%; }
-}
-
-/* --- NAV --- */
-.hacker-nav {
+.nav-inner {
     display: flex;
     justify-content: space-between;
-    padding: 15px 5%;
-    background: rgba(0,0,0,0.9);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    font-family: 'Fira Code', monospace;
-    font-size: 0.8rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 15px;
 }
 
-.status-group .blink {
-    color: var(--primary);
-    animation: pulse 1s infinite;
+.brand { font-weight: 800; letter-spacing: 5px; font-size: 0.9rem; }
+
+/* --- HEROES --- */
+.main-hero {
+    padding: 180px 5% 60px 5%;
+    text-align: center;
 }
 
-.links a {
-    color: var(--text);
-    text-decoration: none;
-    margin-left: 15px;
-    transition: 0.3s;
-}
-
-.links a:hover { color: var(--primary); }
-
-/* --- HERO --- */
-.terminal-hero {
-    padding: 80px 5%;
-    border-bottom: 1px solid var(--border);
-}
-
-.cmd {
-    font-family: 'Fira Code', monospace;
-    color: var(--primary);
-    margin-bottom: 10px;
-}
-
-h1 {
-    font-family: 'JetBrains Mono', monospace;
-    /* Ajuste responsivo para que no se salga nunca */
-    font-size: clamp(2rem, 12vw, 5rem);
-    line-height: 1;
+.main-hero h1 {
+    font-size: clamp(2.5rem, 10vw, 6rem);
+    font-weight: 800;
     text-transform: uppercase;
-    word-break: break-word; /* Evita que el texto largo se salga */
-}
-
-h1 span {
-    color: transparent;
-    -webkit-text-stroke: 1px var(--primary);
-}
-
-.console-output {
-    margin-top: 20px;
-    font-family: 'Fira Code', monospace;
-    font-size: 0.9rem;
-    color: #666;
-}
-
-/* --- DATA VAULT (CONTENIDO) --- */
-.data-vault {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-.data-block {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 40px;
-    margin-bottom: 40px;
-    position: relative;
-    border-left: 4px solid var(--primary);
-}
-
-.block-id {
-    position: absolute;
-    top: 0; right: 0;
-    background: var(--primary);
-    color: #000;
-    font-weight: bold;
-    font-family: 'Fira Code', monospace;
-    padding: 5px 15px;
-    font-size: 0.8rem;
-}
-
-h2 {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.8rem;
+    line-height: 0.9;
+    letter-spacing: -3px;
     margin-bottom: 20px;
-    color: var(--primary);
 }
 
-.deep-info {
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 1px dashed #333;
-}
-
-h3 {
+.main-hero p {
+    color: var(--sub);
     font-size: 1rem;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    color: #fff;
     letter-spacing: 2px;
 }
 
-ul {
-    list-style: none;
+/* --- GRID PRINCIPAL --- */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0 5% 100px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-ul li {
-    margin-bottom: 10px;
-    padding-left: 20px;
-    position: relative;
-    font-size: 0.95rem;
-    color: #aaa;
-}
-
-ul li::before {
-    content: '>>';
-    position: absolute;
-    left: 0;
-    color: var(--primary);
-}
-
-/* --- FOOTER --- */
-.hacker-footer {
-    text-align: center;
+.menu-card {
+    height: 400px;
+    background: var(--gray);
+    border: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     padding: 40px;
-    font-family: 'Fira Code', monospace;
-    font-size: 0.7rem;
-    color: #444;
+    text-decoration: none;
+    color: white;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
 }
 
-/* --- ANIMACIONES --- */
-@keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1; }
+.menu-card:hover {
+    border-color: rgba(255,255,255,0.3);
+    transform: translateY(-10px);
 }
 
-/* --- MEDIA QUERIES PARA CELULAR --- */
-@media (max-width: 600px) {
-    .hacker-nav .links { display: none; } /* Ocultamos links en pantallas muy peques para evitar desorden */
-    .data-block { padding: 25px; }
-    h2 { font-size: 1.4rem; }
+.menu-card h3 { font-size: 1.5rem; margin-bottom: 10px; z-index: 2; }
+.menu-card span { font-size: 0.8rem; letter-spacing: 2px; color: var(--sub); z-index: 2; }
+
+/* --- SECCIONES INTERNAS --- */
+.back-btn {
+    display: inline-block;
+    margin-bottom: 40px;
+    color: var(--sub);
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.info-card {
+    background: #0a0a0a;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 50px 40px;
+    transition: 0.4s;
+}
+
+.info-card:hover { background: #111; border-color: #fff; }
+
+.info-card h4 { font-size: 1.2rem; margin-bottom: 20px; letter-spacing: 1px; color: var(--accent); }
+.info-card p { color: var(--sub); font-size: 0.95rem; line-height: 1.8; }
+
+/* --- RESPONSIVE MÓVIL --- */
+@media (max-width: 768px) {
+    .main-hero { padding: 140px 20px 40px 20px; }
+    .menu-grid { grid-template-columns: 1fr; }
+    .menu-card { height: 250px; }
 }
