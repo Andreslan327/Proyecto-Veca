@@ -2,39 +2,75 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IA // Nexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>IA // NEXOS V30</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&family=Inter:wght@200;400;700;900&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <div class="fixed-bg"></div>
-    <div class="main-hero animate__animated animate__fadeIn">
-        <a href="index.html" class="back-btn">← VOLVER AL HUB</a>
-        <h1>SISTEMAS <span class="italic">Cognitivos</span></h1>
-    </div>
+
+    <nav class="glass-nav animate__animated animate__fadeInDown">
+        <div class="nav-inner">
+            <div class="logo-group">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                    <span class="brand">NEXOS</span>
+                    <span class="dot"></span>
+                </a>
+            </div>
+            <div class="sys-info">
+                <span class="version">NEXO_01_AI</span>
+                <span class="status">COGNITIVE_LINK_ESTABLISHED</span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="main-hero">
+        <div class="hero-content">
+            <a href="index.html" class="back-btn animate__animated animate__fadeIn">← VOLVER AL HUB</a>
+            <p class="pre-title animate__animated animate__fadeInUp">INTELIGENCIA COMPUTACIONAL AVANZADA</p>
+            <h1 class="animate__animated animate__fadeInUp">SISTEMAS <br><span class="italic">Cognitivos</span></h1>
+            <div class="hero-line animate__animated animate__stretch"></div>
+        </div>
+    </header>
 
     <main class="info-grid">
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
-            <h4>01. TRANSFORMERS Y ATENCIÓN</h4>
-            <p>La arquitectura "Transformer", introducida en 2017, eliminó las limitaciones de las redes recurrentes. Gracias al mecanismo de 'atención', las máquinas ahora entienden el contexto global de una frase, permitiendo que modelos como GPT-4 procesen trillones de tokens con una coherencia casi humana en temas complejos de derecho, ciencia y programación.</p>
-        </div>
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
-            <h4>02. IA GENERATIVA MULTIMODAL</h4>
-            <p>Hemos pasado de texto simple a la multimodalidad absoluta. Los sistemas actuales procesan video, audio y texto en una sola capa neuronal. Esto permite que una IA pueda "ver" un plano arquitectónico y generar el código estructural, el renderizado 3D y el presupuesto de materiales en cuestión de segundos, optimizando ciclos de trabajo que antes tomaban meses.</p>
-        </div>
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
-            <h4>03. ALINEACIÓN Y ÉTICA SISTÉMICA</h4>
-            <p>El mayor reto actual es el "Alignment" (Alineación). Se trata de asegurar que los objetivos de una superinteligencia coincidan con los valores humanos. Mediante el RLHF (Aprendizaje por Refuerzo a partir de Retroalimentación Humana), los desarrolladores filtran sesgos y comportamientos peligrosos, buscando una tecnología que sea potente pero segura para la civilización.</p>
-        </div>
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
-            <h4>04. IA EN EL DESCUBRIMIENTO CIENTÍFICO</h4>
-            <p>AlphaFold de DeepMind es el ejemplo perfecto: resolvió el problema del plegamiento de proteínas, algo que frustró a los biólogos por 50 años. Hoy, la IA acelera la creación de nuevos materiales y fármacos mediante simulaciones moleculares, reduciendo el costo de entrada para curar enfermedades raras y diseñar baterías de estado sólido mucho más eficientes.</p>
-        </div>
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.5s">
-            <h4>05. AGENTES AUTÓNOMOS (AI AGENTS)</h4>
-            <p>El futuro inmediato son los agentes. No son solo chats, sino entidades que pueden ejecutar acciones en el mundo real: navegar por la web, gestionar finanzas, realizar compras y coordinar equipos de trabajo sin intervención humana constante. Estamos transitando de una IA de consulta a una IA de ejecución operativa total.</p>
-        </div>
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+            <div class="card-id">01</div>
+            <h4>ARQUITECTURA TRANSFORMER</h4>
+            <p>La revolución actual se cimenta en el mecanismo de auto-atención de los Transformers. Esta arquitectura permite que modelos como GPT-4 y Claude procesen secuencias de datos de manera paralela, comprendiendo relaciones semánticas profundas en contextos masivos. A diferencia de las redes neuronales antiguas, los Transformers asignan pesos de importancia a cada token, permitiendo una "comprensión" situacional del lenguaje humano sin precedentes.</p>
+        </article>
+
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+            <div class="card-id">02</div>
+            <h4>MULTIMODALIDAD NATIVA</h4>
+            <p>La IA ha trascendido el procesamiento de texto plano para convertirse en sistemas multimodales capaces de razonar simultáneamente sobre video, audio y código. Estos modelos integran diversos espacios latentes en una sola capa de inferencia, permitiendo que una inteligencia artificial pueda interpretar un examen médico visual, generar un diagnóstico escrito y sugerir un protocolo quirúrgico en una sola operación computacional coordinada.</p>
+        </article>
+
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
+            <div class="card-id">03</div>
+            <h4>ALINEACIÓN Y RLHF</h4>
+            <p>El aprendizaje por refuerzo a partir de la retroalimentación humana (RLHF) es el pilar de la seguridad en la IA moderna. Este proceso de "alineación" asegura que los modelos de lenguaje sigan instrucciones éticas y eviten comportamientos emergentes peligrosos. La investigación actual se centra en la interpretabilidad mecanística: abrir la "caja negra" neuronal para entender exactamente por qué una IA toma una decisión específica.</p>
+        </article>
+
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.8s">
+            <div class="card-id">04</div>
+            <h4>REDES NEURONALES LÍQUIDAS</h4>
+            <p>Inspiradas en el sistema nervioso de organismos simples, las redes neuronales líquidas representan el futuro del procesamiento en tiempo real. A diferencia de los modelos tradicionales con parámetros estáticos, las redes líquidas ajustan sus ecuaciones subyacentes dinámicamente según el flujo de datos de entrada. Esto las hace excepcionalmente eficientes para la conducción autónoma y la robótica, donde la adaptabilidad constante es vital.</p>
+        </article>
+
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 1s">
+            <div class="card-id">05</div>
+            <h4>AGENTES AUTÓNOMOS</h4>
+            <p>Estamos migrando de una IA pasiva a agentes autónomos capaces de ejecutar flujos de trabajo complejos sin supervisión. Estos agentes poseen memoria a largo plazo (RAG) y la capacidad de utilizar herramientas externas como navegadores, terminales de código y APIs financieras. La meta final es la AGI (Inteligencia Artificial General), un sistema capaz de igualar o superar la capacidad cognitiva humana en cualquier tarea intelectualmente exigente.</p>
+        </article>
     </main>
+
+    <footer class="v30-footer">
+        <p>© 2025 NEXOS COGNITIVE DIVISION. PROTOCOLO V30.10</p>
+    </footer>
+
 </body>
 </html>

@@ -2,39 +2,75 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cómputo // Nexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CÓMPUTO // NEXOS V30</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&family=Inter:wght@200;400;700;900&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <div class="fixed-bg"></div>
-    <div class="main-hero animate__animated animate__fadeIn">
-        <a href="index.html" class="back-btn">← VOLVER AL HUB</a>
-        <h1>POTENCIA <span class="italic">Arquitectónica</span></h1>
-    </div>
+
+    <nav class="glass-nav animate__animated animate__fadeInDown">
+        <div class="nav-inner">
+            <div class="logo-group">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                    <span class="brand">NEXOS</span>
+                    <span class="dot"></span>
+                </a>
+            </div>
+            <div class="sys-info">
+                <span class="version">NEXO_02_COMP</span>
+                <span class="status">HARDWARE_SYNC_OK</span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="main-hero">
+        <div class="hero-content">
+            <a href="index.html" class="back-btn animate__animated animate__fadeIn">← VOLVER AL HUB</a>
+            <p class="pre-title animate__animated animate__fadeInUp">INFRAESTRUCTURA DE PROCESAMIENTO MASIVO</p>
+            <h1 class="animate__animated animate__fadeInUp">POTENCIA <br><span class="italic">Arquitectónica</span></h1>
+            <div class="hero-line animate__animated animate__stretch"></div>
+        </div>
+    </header>
 
     <main class="info-grid">
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
-            <h4>01. SUPREMACÍA CUÁNTICA</h4>
-            <p>A diferencia de los bits binarios (0 y 1), los qubits aprovechan la superposición y el entrelazamiento. Empresas como IBM y Google están logrando "Supremacía Cuántica", donde procesadores como Osprey pueden realizar cálculos de criptografía y física cuántica que las supercomputadoras más potentes del mundo simplemente no pueden procesar por falta de memoria.</p>
-        </div>
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
-            <h4>02. DISEÑO DE CHIPS (SoC)</h4>
-            <p>La integración es la clave. Los System-on-a-Chip (SoC) combinan CPU, GPU y Motores Neuronales en una sola oblea de silicio de 3 nanómetros. Esto elimina el cuello de botella de la transferencia de datos entre componentes, permitiendo que dispositivos portátiles tengan una potencia de cálculo que antes requería estaciones de trabajo conectadas a la corriente.</p>
-        </div>
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
-            <h4>03. FOTÓNICA Y LUZ</h4>
-            <p>El silicio está llegando a su límite térmico. La computación fotónica utiliza fotones (luz) en lugar de electrones para transmitir datos dentro de los procesadores. Esto promete velocidades de transferencia cercanas a la velocidad de la luz con un consumo energético y un calor generado casi nulos, lo que revolucionará los centros de datos masivos.</p>
-        </div>
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
-            <h4>04. ALMACENAMIENTO DE ADN</h4>
-            <p>Estamos explorando medios biológicos para guardar datos. El ADN puede almacenar petabytes de información en un espacio microscópico y durar miles de años sin degradarse. Es la solución final al problema del almacenamiento global, donde la producción de datos digitales supera nuestra capacidad de fabricar discos duros físicos.</p>
-        </div>
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.5s">
-            <h4>05. ARQUITECTURA RISC-V</h4>
-            <p>El estándar abierto RISC-V está desafiando el monopolio de Intel y ARM. Al ser una arquitectura de hardware de código abierto, permite que cualquier país o empresa diseñe sus propios chips personalizados sin pagar licencias costosas, democratizando el acceso al hardware de alto rendimiento para el Internet de las Cosas (IoT).</p>
-        </div>
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+            <div class="card-id">01</div>
+            <h4>SUPREMACÍA CUÁNTICA Y QUBITS</h4>
+            <p>A diferencia de los bits binarios tradicionales, los qubits aprovechan los principios de superposición y entrelazamiento cuántico. Procesadores como el Eagle de IBM están superando la barrera de los 400 qubits, permitiendo resolver problemas de plegamiento de proteínas y simulaciones moleculares que a una supercomputadora clásica le tomaría miles de años procesar.</p>
+        </article>
+
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+            <div class="card-id">02</div>
+            <h4>FOTÓNICA DE SILICIO</h4>
+            <p>La computación fotónica sustituye los electrones por fotones (luz) para la transferencia de datos. Al eliminar la resistencia eléctrica, se reduce drásticamente el calor generado y se multiplica el ancho de banda por mil. Esta tecnología es la base de los próximos centros de datos de baja latencia y alta eficiencia energética.</p>
+        </article>
+
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
+            <div class="card-id">03</div>
+            <h4>ARQUITECTURAS NEUROMÓRFICAS</h4>
+            <p>Estos chips están diseñados para imitar físicamente la estructura del cerebro humano. A diferencia de la arquitectura Von Neumann estándar, los procesadores neuromórficos como el Loihi de Intel integran memoria y procesamiento en "neuronas artificiales" de silicio, permitiendo un aprendizaje continuo con un consumo de energía de apenas unos milivatios.</p>
+        </article>
+
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.8s">
+            <div class="card-id">04</div>
+            <h4>LITOGRAFÍA EUV DE 2NM</h4>
+            <p>La miniaturización extrema mediante Litografía Ultravioleta Extrema (EUV) está permitiendo empaquetar decenas de miles de millones de transistores en obleas del tamaño de una uña. El salto hacia los 2 nanómetros representa el límite físico del silicio, impulsando la creación de SoCs (System on a Chip) con una densidad de potencia sin precedentes.</p>
+        </article>
+
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 1s">
+            <div class="card-id">05</div>
+            <h4>COMPUTACIÓN EXAESCALA</h4>
+            <p>La era de la computación exaescala permite realizar más de un trillón de operaciones por segundo. Sistemas como 'Frontier' están utilizando esta potencia para modelar el cambio climático global y astrofísica de alta precisión, integrando clústeres masivos de GPUs de última generación con interconexiones de fibra óptica de latencia cero.</p>
+        </article>
     </main>
+
+    <footer class="v30-footer">
+        <p>© 2025 NEXOS COMPUTING CORE. VERSIÓN_BUILD_V30.PC</p>
+    </footer>
+
 </body>
 </html>

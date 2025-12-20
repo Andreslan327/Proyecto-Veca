@@ -2,39 +2,75 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Android // Nexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ANDROID // NEXOS V30</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&family=Inter:wght@200;400;700;900&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <div class="fixed-bg"></div>
-    <div class="main-hero animate__animated animate__fadeIn">
-        <a href="index.html" class="back-btn">← VOLVER AL HUB</a>
-        <h1>NÚCLEO <span class="italic">Abierto</span></h1>
-    </div>
+
+    <nav class="glass-nav animate__animated animate__fadeInDown">
+        <div class="nav-inner">
+            <div class="logo-group">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                    <span class="brand">NEXOS</span>
+                    <span class="dot"></span>
+                </a>
+            </div>
+            <div class="sys-info">
+                <span class="version">NEXO_03_OS</span>
+                <span class="status">KERNEL_STABLE_REL</span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="main-hero">
+        <div class="hero-content">
+            <a href="index.html" class="back-btn animate__animated animate__fadeIn">← VOLVER AL HUB</a>
+            <p class="pre-title animate__animated animate__fadeInUp">ARQUITECTURA DE CÓDIGO ABIERTO</p>
+            <h1 class="animate__animated animate__fadeInUp">NÚCLEO <br><span class="italic">Abierto</span></h1>
+            <div class="hero-line animate__animated animate__stretch"></div>
+        </div>
+    </header>
 
     <main class="info-grid">
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
-            <h4>01. EVOLUCIÓN DEL RUNTIME (ART)</h4>
-            <p>El Android Runtime (ART) ha pasado por optimizaciones masivas, convirtiendo el código Java/Kotlin en instrucciones nativas de forma ultra eficiente. Las actualizaciones actuales vía Google Play System permiten que el motor del sistema se actualice sin necesidad de una actualización completa del firmware, manteniendo los dispositivos rápidos por más años.</p>
-        </div>
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
-            <h4>02. PROJECT MAINSTREAM</h4>
-            <p>Google ha modularizado Android para combatir la fragmentación. Gracias a Project Mainline, los parches de seguridad críticos se envían directamente desde los servidores de Google, saltándose la burocracia de las operadoras y fabricantes. Esto ha elevado el estándar de seguridad de Android a niveles corporativos militares.</p>
-        </div>
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
-            <h4>03. ANDROID AUTOMOTIVE</h4>
-            <p>No confundir con Android Auto. Android Automotive es el sistema operativo real que controla el hardware del coche (climatización, sensores, motor). Marcas como Volvo y Polestar ya lo integran, permitiendo una experiencia de conducción donde el software gestiona la eficiencia energética del vehículo de forma nativa.</p>
-        </div>
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
-            <h4>04. PRIVACIDAD EN SANDBOX</h4>
-            <p>El sistema de "Sandboxing" de Android asegura que cada aplicación viva en su propia burbuja aislada. Con las nuevas zonas de privacidad (Private Space), el usuario puede ocultar aplicaciones sensibles bajo una capa de cifrado biométrico independiente, garantizando que incluso si el teléfono se desbloquea, los datos críticos permanezcan invisibles.</p>
-        </div>
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.5s">
-            <h4>05. INTEGRACIÓN FUSIÓN-IA</h4>
-            <p>Android está mutando de un SO de aplicaciones a uno de intenciones. Mediante modelos de lenguaje pequeños (SLM) que corren localmente en el procesador (NPU), el sistema aprende tus rutinas para precargar procesos, traducir conversaciones en tiempo real sin conexión y filtrar spam con una precisión del 99.9%.</p>
-        </div>
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+            <div class="card-id">01</div>
+            <h4>OPTIMIZACIÓN DEL ART RUNTIME</h4>
+            <p>El Android Runtime (ART) ha evolucionado hacia un modelo de compilación híbrida que utiliza perfiles de computación en la nube para optimizar el bytecode. Esto permite que las aplicaciones se ejecuten con una latencia mínima, reduciendo el consumo de memoria RAM hasta en un 30% mediante la compilación anticipada (AOT) de los métodos de código más utilizados.</p>
+        </article>
+
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+            <div class="card-id">02</div>
+            <h4>PROJECT MAINLINE Y SEGURIDAD</h4>
+            <p>La modularización absoluta del sistema operativo mediante Project Mainline permite que componentes críticos del sistema, como la pila de protocolos Wi-Fi y los códecs multimedia, se actualicen de forma independiente a través de Google Play. Esto garantiza una defensa proactiva contra vulnerabilidades de día cero sin depender de los ciclos de actualización del fabricante.</p>
+        </article>
+
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
+            <div class="card-id">03</div>
+            <h4>SANDBOXING Y PRIVACIDAD BIOMÉTRICA</h4>
+            <p>Android implementa un modelo de seguridad basado en privilegios mínimos donde cada proceso se ejecuta en un Sandbox aislado por el kernel de Linux. La nueva arquitectura de 'Espacios Privados' utiliza contenedores cifrados por hardware que aíslan completamente las aplicaciones sensibles, protegiendo los datos incluso ante ataques de acceso físico al almacenamiento.</p>
+        </article>
+
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.8s">
+            <div class="card-id">04</div>
+            <h4>INTEGRACIÓN DE MODELOS NPU</h4>
+            <p>El sistema operativo ha integrado capas de IA generativa directamente en el framework de Android. Mediante el uso de la Unidad de Procesamiento Neuronal (NPU) local, el SO puede realizar tareas complejas como traducción simultánea, transcripción de audio forense y edición computacional de video sin enviar un solo bit de información a la nube.</p>
+        </article>
+
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 1s">
+            <div class="card-id">05</div>
+            <h4>VIRTUALIZACIÓN AVANZADA (AVF)</h4>
+            <p>El Android Virtualization Framework (AVF) permite ejecutar cargas de trabajo altamente seguras en máquinas virtuales aisladas que corren en paralelo al sistema operativo principal. Esto abre la puerta a un entorno de ejecución de confianza (TEE) mucho más robusto, permitiendo que Android gestione transacciones financieras y documentos de identidad con criptografía de nivel gubernamental.</p>
+        </article>
     </main>
+
+    <footer class="v30-footer">
+        <p>© 2025 NEXOS ANDROID DIVISION. KERNEL_DIST_V30</p>
+    </footer>
+
 </body>
 </html>

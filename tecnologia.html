@@ -2,39 +2,75 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnología // Nexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TECNOLOGÍA // NEXOS V30</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&family=Inter:wght@200;400;700;900&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <div class="fixed-bg"></div>
-    <div class="main-hero animate__animated animate__fadeIn">
-        <a href="index.html" class="back-btn">← VOLVER AL HUB</a>
-        <h1>HARDWARE <span class="italic">Sustentable</span></h1>
-    </div>
+
+    <nav class="glass-nav animate__animated animate__fadeInDown">
+        <div class="nav-inner">
+            <div class="logo-group">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                    <span class="brand">NEXOS</span>
+                    <span class="dot"></span>
+                </a>
+            </div>
+            <div class="sys-info">
+                <span class="version">NEXO_04_ECO</span>
+                <span class="status">SUSTAINABILITY_SYNC_100%</span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="main-hero">
+        <div class="hero-content">
+            <a href="index.html" class="back-btn animate__animated animate__fadeIn">← VOLVER AL HUB</a>
+            <p class="pre-title animate__animated animate__fadeInUp">FRONTERAS DE LA INNOVACIÓN GLOBAL</p>
+            <h1 class="animate__animated animate__fadeInUp">HARDWARE <br><span class="italic">Sustentable</span></h1>
+            <div class="hero-line animate__animated animate__stretch"></div>
+        </div>
+    </header>
 
     <main class="info-grid">
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
-            <h4>01. BATERÍAS DE ESTADO SÓLIDO</h4>
-            <p>La tecnología de iones de litio está llegando a su fin. Las baterías de estado sólido utilizan electrolitos sólidos en lugar de líquidos, lo que triplica la densidad energética y permite cargas completas en menos de 10 minutos sin riesgo de incendio. Esto es el motor que hará que los aviones eléctricos sean viables en la próxima década.</p>
-        </div>
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
-            <h4>02. INTERNET SATELITAL GLOBAL</h4>
-            <p>Constelaciones de satélites de órbita baja (LEO) como Starlink están eliminando la brecha digital. Al reducir la latencia a niveles de fibra óptica (20ms), permiten que zonas rurales tengan acceso a telemedicina, educación avanzada y comercio global, cambiando la economía de países en desarrollo de la noche a la mañana.</p>
-        </div>
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
-            <h4>03. COMPUTACIÓN ESPACIAL</h4>
-            <p>Ya no miramos pantallas, vivimos dentro de ellas. La computación espacial mezcla el mundo físico con el digital mediante visores de alta resolución y seguimiento ocular. Esto permite que ingenieros colaboren en tiempo real sobre motores complejos o cirujanos operen con mapas holográficos superpuestos sobre el paciente.</p>
-        </div>
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
-            <h4>04. FUSIÓN NUCLEAR COMERCIAL</h4>
-            <p>La "Energía de las Estrellas". Los avances recientes en el confinamiento magnético están acercando la fusión nuclear comercial. Es una fuente de energía limpia, infinita y sin residuos radiactivos de larga duración. Lograr esto significaría el fin de la crisis energética y un salto de gigante para la humanidad hacia una civilización Tipo I.</p>
-        </div>
-        <div class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.5s">
-            <h4>05. NANOROBÓTICA MÉDICA</h4>
-            <p>Estamos diseñando máquinas a escala molecular. Estos nanobots pueden viajar por el torrente sanguíneo para entregar fármacos directamente a células cancerosas o limpiar arterias obstruidas sin necesidad de cirugía invasiva. La tecnología está dejando de ser algo externo para convertirse en una extensión microscópica de nuestra propia biología.</p>
-        </div>
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+            <div class="card-id">01</div>
+            <h4>BATERÍAS DE ESTADO SÓLIDO (SSB)</h4>
+            <p>La arquitectura de almacenamiento energético está migrando hacia electrolitos cerámicos sólidos. Estas celdas eliminan el riesgo de fuga térmica y ofrecen una densidad volumétrica que duplica al Li-ion convencional. Esta tecnología es el catalizador necesario para la aviación comercial eléctrica de corto alcance y la autonomía vehicular superior a los 1,000 kilómetros por carga única.</p>
+        </article>
+
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+            <div class="card-id">02</div>
+            <h4>REDES MESH SATELITALES LEO</h4>
+            <p>Las mega-constelaciones en órbita baja (Low Earth Orbit) están redefiniendo la topología del internet global. Mediante enlaces láser inter-satelitales, se logra una red de baja latencia que opera independientemente de la infraestructura terrestre de fibra óptica, garantizando soberanía digital y conectividad gigabit en los puntos más remotos de la biósfera.</p>
+        </article>
+
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
+            <div class="card-id">03</div>
+            <h4>COMPUTACIÓN ESPACIAL Y XR</h4>
+            <p>Estamos superando la era de la interfaz plana hacia la computación espacial. Mediante sensores LiDAR de alta precisión y seguimiento ocular fotogramétrico, los sistemas operativos se proyectan sobre el entorno físico con coherencia lumínica total. Esta convergencia permite una telepresencia holográfica que redefine el concepto de colaboración industrial y diseño arquitectónico.</p>
+        </article>
+
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 0.8s">
+            <div class="card-id">04</div>
+            <h4>FUSIÓN NUCLEAR POR CONFINAMIENTO</h4>
+            <p>El dominio de la fusión nuclear representa el hito energético definitivo. A través de imanes superconductores de alta temperatura, sistemas como el ITER buscan replicar el ciclo de energía estelar para generar electricidad limpia e inagotable. La viabilidad comercial de la fusión marcaría el fin de la dependencia de combustibles fósiles y la transición hacia una economía de abundancia energética.</p>
+        </article>
+
+        <article class="info-card animate__animated animate__fadeInUp" style="animation-delay: 1s">
+            <div class="card-id">05</div>
+            <h4>BIO-SÍNTESIS Y NANOMEDICINA</h4>
+            <p>La frontera entre el hardware y la biología se desvanece con la nanorobótica de ADN y los sistemas de administración de fármacos dirigidos. Máquinas a escala molecular pueden realizar tareas de reparación celular y desobstrucción vascular con precisión quirúrgica interna, extendiendo la longevidad humana mediante el mantenimiento proactivo de la estructura biológica a nivel atómico.</p>
+        </article>
     </main>
+
+    <footer class="v30-footer">
+        <p>© 2025 NEXOS ECO-TECH DIVISION. GLOBAL_GEN_V30</p>
+    </footer>
+
 </body>
 </html>
