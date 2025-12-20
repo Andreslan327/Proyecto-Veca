@@ -1,266 +1,269 @@
-/* --- VARIABLES DEL SISTEMA --- */
+/* --- CONFIGURACIÓN DE SISTEMA --- */
 :root {
-    --bg-dark: #050505;
-    --neon-green: #00ff41;
-    --neon-pink: #ff0055;
-    --neon-cyan: #00f3ff;
-    --neon-yellow: #fcee0a;
-    --panel-bg: #111111;
-    --border-color: #333;
-    --font-head: 'Orbitron', sans-serif;
-    --font-body: 'Rajdhani', sans-serif;
+    --bg: #0a0a0a;
+    --card: #141414;
+    --accent: #00ff88; /* Verde neón puro */
+    --text: #ffffff;
+    --sub: #888888;
+    --border: rgba(255,255,255,0.08);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: #fff;
-    font-family: var(--font-body);
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
     overflow-x: hidden;
-    padding-bottom: 50px;
 }
 
-/* --- FONDO TECH GRID --- */
-.grid-bg {
+/* Efecto de grano (Ruido) para profundidad */
+.grain::before {
+    content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-image: 
-        linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
-    background-size: 50px 50px;
-    z-index: -2;
-    transform: perspective(500px) rotateX(20deg); /* Efecto 3D suelo */
-    transform-origin: top;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 99;
 }
 
-/* --- BARRA DE ESCANEO ANIMADA --- */
-.scan-line {
-    position: fixed;
+/* --- NAVEGACIÓN --- */
+.top-nav {
+    padding: 20px 5%;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: var(--neon-cyan);
-    opacity: 0.5;
-    animation: scan 4s linear infinite;
+    background: rgba(10,10,10,0.8);
+    backdrop-filter: blur(10px);
     z-index: 100;
-    box-shadow: 0 0 10px var(--neon-cyan);
 }
 
-@keyframes scan {
-    0% { top: -10%; }
-    100% { top: 110%; }
-}
-
-/* --- HEADER --- */
-.cyber-header {
-    text-align: center;
-    padding: 4rem 1rem;
-    position: relative;
-    border-bottom: 1px solid var(--neon-green);
-    background: radial-gradient(circle at center, rgba(0,255,65,0.1), transparent 70%);
-}
-
-.glitch {
-    font-family: var(--font-head);
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: var(--neon-green);
-    text-transform: uppercase;
-    text-shadow: 2px 2px 0px #000;
-    letter-spacing: 2px;
-}
-
-.subtitle {
-    color: var(--neon-cyan);
-    font-size: 1.2rem;
-    margin-top: 10px;
-    letter-spacing: 3px;
-    font-weight: 600;
-}
-
-.cyber-btn {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 15px 40px;
-    background: transparent;
-    border: 2px solid var(--neon-green);
-    color: var(--neon-green);
-    font-family: var(--font-head);
-    font-weight: bold;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: 0.3s;
-    /* Recorte en la esquina del botón */
-    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
-}
-
-.cyber-btn:hover {
-    background: var(--neon-green);
-    color: #000;
-    box-shadow: 0 0 20px var(--neon-green);
-}
-
-/* --- CONTENEDOR PRINCIPAL --- */
-.main-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    display: grid;
-    gap: 3rem; /* Espacio entre tarjetas */
-}
-
-/* --- CYBER CARDS (EL NÚCLEO) --- */
-.cyber-card {
-    background: var(--panel-bg);
-    border-left: 5px solid var(--neon-green); /* Borde grueso a la izquierda */
-    position: relative;
-    padding: 0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-    transition: transform 0.3s ease;
-    /* El corte "Sci-Fi" en la esquina superior derecha */
-    clip-path: polygon(0 0, 95% 0, 100% 10%, 100% 100%, 0 100%);
-}
-
-.cyber-card:hover {
-    transform: translateY(-5px) scale(1.02);
-}
-
-/* Encabezado de la tarjeta (Gris oscuro) */
-.card-header {
-    background: #1a1a1a;
-    padding: 10px 20px;
+.nav-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #333;
-    font-family: var(--font-head);
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.index {
-    font-size: 1.5rem;
-    color: #444;
-    font-weight: 900;
-}
-
-.status {
+.logo {
+    font-family: 'Syncopate', sans-serif;
+    font-weight: 700;
     font-size: 0.8rem;
-    color: var(--neon-green);
-    border: 1px solid var(--neon-green);
-    padding: 2px 8px;
+    letter-spacing: 2px;
+}
+
+.system-status {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+}
+
+.dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 5px;
+    box-shadow: 0 0 10px var(--accent);
+}
+
+/* --- HERO SECTION --- */
+.master-header {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: 60px 5%;
+}
+
+.hero-box {
+    max-width: 800px;
+}
+
+.pre-title {
+    font-family: 'Space Mono', monospace;
+    color: var(--accent);
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-family: 'Syncopate', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+}
+
+.glitch-text {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text);
+}
+
+.hero-line {
+    width: 100px;
+    height: 4px;
+    background: var(--accent);
+    margin-bottom: 30px;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: var(--sub);
+    max-width: 500px;
+}
+
+/* --- GRID DE TARJETAS (Papeada total) --- */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    padding: 0 5% 100px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.tech-card {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.tech-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* Número de paso en el fondo */
+.tech-card::before {
+    content: attr(data-step);
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    font-size: 8rem;
+    font-family: 'Syncopate', sans-serif;
+    font-weight: 900;
+    color: rgba(255,255,255,0.03);
+    z-index: 0;
+}
+
+.card-inner {
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+    background: rgba(0,255,136,0.1);
+    padding: 4px 10px;
     border-radius: 2px;
 }
 
-/* Contenido de la tarjeta */
-.card-content {
-    padding: 2rem;
-    position: relative;
+.year {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 0.8rem;
+    color: var(--sub);
 }
 
-/* Marca de agua de fondo (opcional) */
-.card-content::before {
-    content: '';
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    width: 50px;
-    height: 50px;
-    border-right: 2px solid rgba(255,255,255,0.1);
-    border-bottom: 2px solid rgba(255,255,255,0.1);
+h2 {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
 }
 
-.year-badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.05);
-    color: #aaa;
+p {
+    color: var(--sub);
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+
+.tech-specs {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.tech-specs span {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    border: 1px solid var(--border);
     padding: 5px 10px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    font-size: 0.9rem;
+    color: var(--sub);
 }
 
-.cyber-card h2 {
-    font-family: var(--font-head);
-    font-size: 2rem;
-    color: #fff;
-    margin-bottom: 10px;
-    text-transform: uppercase;
+/* Tarjeta Destacada IA */
+.tech-card.highlight {
+    background: linear-gradient(145deg, #141414, #1a1a1a);
+    border: 1px solid rgba(0,255,136,0.3);
 }
-
-.separator {
-    height: 2px;
-    width: 50px;
-    background: var(--neon-green);
-    margin-bottom: 20px;
-    box-shadow: 0 0 10px var(--neon-green);
-}
-
-.cyber-card p {
-    font-size: 1.1rem;
-    color: #ccc;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-/* Lista técnica */
-.stats {
-    list-style: none;
-    background: rgba(0,0,0,0.3);
-    padding: 15px;
-    border-left: 2px solid #555;
-    font-family: 'Courier New', monospace; /* Tipo consola */
-    color: var(--neon-cyan);
-    font-size: 0.9rem;
-}
-
-/* --- COLORES PERSONALIZADOS POR TARJETA --- */
-.accent-pink { border-left-color: var(--neon-pink); }
-.accent-pink .separator { background: var(--neon-pink); box-shadow: 0 0 10px var(--neon-pink); }
-.accent-pink .status { color: var(--neon-pink); border-color: var(--neon-pink); }
-
-.accent-cyan { border-left-color: var(--neon-cyan); }
-.accent-cyan .separator { background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan); }
-.accent-cyan .status { color: var(--neon-cyan); border-color: var(--neon-cyan); }
-
-.accent-yellow { border-left-color: var(--neon-yellow); }
-.accent-yellow .separator { background: var(--neon-yellow); box-shadow: 0 0 10px var(--neon-yellow); }
-.accent-yellow .status { color: var(--neon-yellow); border-color: var(--neon-yellow); }
-
-/* Animación de parpadeo */
-.blink { animation: blinker 1.5s linear infinite; }
-@keyframes blinker { 50% { opacity: 0; } }
 
 /* --- FOOTER --- */
-.footer-bar {
+.main-footer {
+    padding: 60px 5%;
+    border-top: 1px solid var(--border);
     text-align: center;
-    padding: 20px;
-    font-family: var(--font-head);
-    font-size: 0.8rem;
-    color: #555;
-    border-top: 1px solid #222;
-    background: #000;
 }
 
-/* --- RESPONSIVE (MÓVIL PERFECTO) --- */
+.footer-wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-wrap p {
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 5px;
+    font-size: 0.7rem;
+}
+
+.footer-decor {
+    width: 50px;
+    height: 1px;
+    background: var(--sub);
+    margin: 20px auto;
+}
+
+/* --- MOBILE OPTIMIZATION (Android/iOS) --- */
 @media (max-width: 768px) {
-    .glitch { font-size: 2rem; }
-    .main-container { padding: 1rem; gap: 2rem; }
-    .cyber-card h2 { font-size: 1.5rem; }
-    
-    /* En móvil las tarjetas ocupan todo el ancho y se ven robustas */
-    .cyber-card {
+    .master-header {
+        min-height: 50vh;
+        padding-top: 100px;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+        padding: 0 20px 60px 20px;
+    }
+
+    .tech-card {
         margin-bottom: 10px;
-        clip-path: none; /* Quitamos el recorte complejo para ganar espacio en pantallas pequeñas */
-        border-right: 1px solid #222;
-        border-top: 1px solid #222;
-        border-bottom: 1px solid #222;
+    }
+
+    .card-inner {
+        padding: 30px; /* Menos padding en móvil para no apretar el texto */
     }
 }
