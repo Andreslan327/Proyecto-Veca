@@ -1,284 +1,238 @@
-/* --- RESET & BASICS --- */
+/* --- CONFIGURACIÓN BASE --- */
 :root {
-    --bg-dark: #050505;
-    --bg-card: rgba(30, 30, 30, 0.6);
-    --accent-primary: #00f2ff; /* Cyan Cibernético */
-    --accent-secondary: #bd00ff; /* Morado Neón */
-    --text-main: #ffffff;
-    --text-muted: #a0a0a0;
-    --font-heading: 'Montserrat', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --bg-color: #080808;
+    --card-bg: rgba(20, 20, 20, 0.7);
+    --primary: #ffffff;
+    --secondary: #888888;
+    --accent: #3b82f6; /* Azul técnico */
+    --accent-glow: rgba(59, 130, 246, 0.4);
+    --font-title: 'Space Grotesk', sans-serif;
+    --font-body: 'Outfit', sans-serif;
 }
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Vital para que no se salga nada */
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
+    background-color: var(--bg-color);
+    color: var(--primary);
     font-family: var(--font-body);
-    line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Adiós al scroll horizontal indeseado */
 }
 
-/* --- BACKGROUND ANIMATION --- */
-/* Un fondo sutil con gradientes que se mueven */
-.bg-animation {
+/* Fondo con luz ambiental suave */
+.bg-glow {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 10% 20%, rgba(189, 0, 255, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.08) 0%, transparent 40%);
+    height: 100vh;
+    background: radial-gradient(circle at 50% 10%, rgba(59, 130, 246, 0.15), transparent 60%);
     z-index: -1;
 }
 
-/* --- HERO SECTION --- */
+/* --- HEADER / HERO --- */
 .hero {
-    height: 100vh;
+    height: 90vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 2rem;
-    position: relative;
+    padding: 20px;
 }
 
-.hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 100px;
-    background: linear-gradient(to bottom, var(--accent-primary), transparent);
-}
-
-.badge {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.5rem 1rem;
+.pill {
+    display: inline-block;
+    padding: 6px 16px;
+    border: 1px solid rgba(255,255,255,0.2);
     border-radius: 50px;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
+    font-size: 0.85rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
 }
 
 .hero h1 {
-    font-family: var(--font-heading);
-    font-size: 4rem;
-    font-weight: 900;
+    font-family: var(--font-title);
+    font-size: 3.5rem;
     line-height: 1.1;
-    margin-bottom: 1.5rem;
-    letter-spacing: -2px;
+    margin-bottom: 20px;
 }
 
-/* Texto con gradiente */
-.gradient-text {
-    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+.highlight {
+    background: linear-gradient(90deg, #fff, #666);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 30px rgba(0, 242, 255, 0.3);
 }
 
 .hero p {
-    color: var(--text-muted);
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin-bottom: 2.5rem;
+    color: var(--secondary);
+    max-width: 500px;
+    margin: 0 auto 40px auto;
+    font-size: 1.1rem;
 }
 
-.btn-glow {
+.btn-primary {
     text-decoration: none;
-    color: var(--bg-dark);
-    background: var(--text-main);
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
+    background: var(--primary);
+    color: #000;
+    padding: 12px 30px;
+    border-radius: 4px;
     font-weight: 700;
-    font-family: var(--font-heading);
-    transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    font-family: var(--font-title);
+    transition: transform 0.2s;
 }
 
-.btn-glow:hover {
-    transform: scale(1.05);
-    background: var(--accent-primary);
-    box-shadow: 0 0 40px rgba(0, 242, 255, 0.6);
+.btn-primary:active {
+    transform: scale(0.95);
 }
 
-/* --- TIMELINE SECTION --- */
-.timeline-container {
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+/* --- TIMELINE (El Núcleo) --- */
+.timeline-wrapper {
     position: relative;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
 }
 
-/* Línea central vertical */
-.timeline-container::before {
-    content: '';
+/* La línea central */
+.line {
     position: absolute;
-    top: 0;
-    left: 50%;
     width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, var(--accent-secondary), transparent);
+    background: rgba(255,255,255,0.1);
+    top: 0;
+    bottom: 0;
+    left: 50%; /* Centro por defecto (PC) */
     transform: translateX(-50%);
 }
 
-.timeline-item {
+.item {
     display: flex;
-    justify-content: flex-end; /* Por defecto a la derecha (para alternar luego) */
-    padding-bottom: 4rem;
-    width: 50%;
+    justify-content: center;
+    padding-bottom: 60px;
     position: relative;
+    width: 100%;
 }
 
-/* Alternancia Izquierda/Derecha */
-.timeline-item.left {
-    align-self: flex-start;
-    justify-content: flex-end;
-    padding-right: 3rem;
-    text-align: right;
+.content {
+    width: 45%; /* En PC ocupa un poco menos de la mitad */
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 12px;
+    position: relative;
+    transition: border-color 0.3s;
 }
 
-.timeline-item.right {
-    align-self: flex-end;
-    justify-content: flex-start;
-    padding-left: 3rem;
-    text-align: left;
-    margin-left: 50%; /* Mueve el contenedor a la mitad derecha */
+.content:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
 }
 
-/* Punto en la línea de tiempo */
-.timeline-item::after {
+/* Posicionamiento PC (Zig Zag) */
+.item.left { justify-content: flex-start; }
+.item.right { justify-content: flex-end; }
+
+/* El punto en la línea (PC) */
+.content::after {
     content: '';
     position: absolute;
-    top: 20px;
-    width: 16px;
-    height: 16px;
-    background: var(--bg-dark);
-    border: 3px solid var(--accent-primary);
+    top: 30px;
+    width: 12px;
+    height: 12px;
+    background: var(--bg-color);
+    border: 2px solid var(--accent);
     border-radius: 50%;
-    box-shadow: 0 0 15px var(--accent-primary);
     z-index: 10;
 }
 
-.timeline-item.left::after { right: -11px; }
-.timeline-item.right::after { left: -11px; }
-
-/* --- CARD DESIGN (GLASSMORPHISM) --- */
-.card {
-    background: var(--bg-card);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 2rem;
-    border-radius: 16px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+.item.left .content::after {
+    right: -11.5%; /* Ajuste manual para PC */
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6), 
-                inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.3);
+.item.right .content::after {
+    left: -11.5%; /* Ajuste manual para PC */
 }
 
-.year {
-    font-family: var(--font-heading);
+/* Tipografía interna */
+.date {
+    display: block;
+    color: var(--accent);
     font-weight: 700;
-    color: var(--accent-primary);
-    margin-bottom: 0.5rem;
-    display: inline-block;
-    border-bottom: 2px solid var(--accent-secondary);
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
 }
 
-.card h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #fff;
+.content h2 {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
 }
 
-.card p {
-    color: var(--text-muted);
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
+.content p {
+    color: #ccc;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
 }
 
-/* Tags al final de la tarjeta */
-.tags {
+.tech-stack {
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
-    justify-content: inherit; /* Sigue la alineación del padre */
+    flex-wrap: wrap;
 }
 
-.tags span {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    color: var(--accent-primary);
-    border: 1px solid rgba(0, 242, 255, 0.2);
+.tech-stack span {
+    font-size: 0.75rem;
+    background: rgba(255,255,255,0.05);
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 /* --- FOOTER --- */
 footer {
     text-align: center;
-    padding: 4rem 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    background: linear-gradient(to top, #000, transparent);
+    padding: 40px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: var(--secondary);
+    font-size: 0.9rem;
 }
 
-footer h3 {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(90deg, #fff, #888);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* --- RESPONSIVE DESIGN (MÓVILES) --- */
+/* --- RESPONSIVE / MÓVIL (Aquí está la magia para Android) --- */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.8rem; }
+    .hero h1 { font-size: 2.5rem; }
     
-    .timeline-container::before {
-        left: 20px; /* Mueve la línea a la izquierda */
+    /* Movemos la línea a la izquierda */
+    .line {
+        left: 30px; 
+        transform: none;
     }
 
-    .timeline-item {
-        width: 100%;
-        padding-left: 3rem;
-        padding-right: 0;
-        margin-left: 0;
-        text-align: left;
+    /* Las cajas ocupan casi todo el ancho */
+    .item {
+        justify-content: flex-end; /* Empujamos todo a la derecha */
     }
 
-    .timeline-item.left, .timeline-item.right {
-        align-self: flex-start;
-        justify-content: flex-start;
-        text-align: left;
+    .content {
+        width: 85%; /* Dejamos 15% a la izquierda para la línea */
+        margin-left: auto; /* Asegura que se pegue a la derecha */
     }
 
-    .timeline-item.left { padding-right: 0; }
-    .timeline-item.right { padding-left: 3rem; } /* Asegura espacio para la línea */
-
-    /* Ajustar puntos de la línea */
-    .timeline-item.left::after, .timeline-item.right::after {
-        left: 11px; /* Alineados con la línea izquierda */
+    /* Ajustamos el puntito para que calce en la nueva línea */
+    .item.left .content::after,
+    .item.right .content::after {
+        left: -13%; /* Calculado para caer sobre la línea izquierda */
         right: auto;
     }
+}
 
-    .tags { justify-content: flex-start; }
+@media (max-width: 480px) {
+    .item.left .content::after,
+    .item.right .content::after {
+        left: -17%; /* Ajuste fino para pantallas muy angostas */
+    }
 }
