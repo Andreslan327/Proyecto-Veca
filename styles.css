@@ -1,269 +1,188 @@
-/* --- CONFIGURACIÓN DE SISTEMA --- */
+/* --- ESTILO HACKER V.FINAL --- */
 :root {
-    --bg: #0a0a0a;
-    --card: #141414;
-    --accent: #00ff88; /* Verde neón puro */
-    --text: #ffffff;
-    --sub: #888888;
-    --border: rgba(255,255,255,0.08);
+    --primary: #00ff41; /* Verde terminal */
+    --bg: #050505;
+    --surface: #111;
+    --border: #222;
+    --text: #e0e0e0;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
 }
 
 body {
     background-color: var(--bg);
     color: var(--text);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.5;
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.6;
     overflow-x: hidden;
 }
 
-/* Efecto de grano (Ruido) para profundidad */
-.grain::before {
-    content: "";
+/* --- EFECTO SCANNER --- */
+.scanner {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: url('https://grainy-gradients.vercel.app/noise.svg');
-    opacity: 0.05;
-    pointer-events: none;
-    z-index: 99;
+    top: 0; left: 0; width: 100%; height: 2px;
+    background: rgba(0, 255, 65, 0.2);
+    box-shadow: 0 0 15px var(--primary);
+    animation: scan 3s linear infinite;
+    z-index: 999;
 }
 
-/* --- NAVEGACIÓN --- */
-.top-nav {
-    padding: 20px 5%;
+@keyframes scan {
+    0% { top: -10px; }
+    100% { top: 100%; }
+}
+
+/* --- NAV --- */
+.hacker-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 5%;
+    background: rgba(0,0,0,0.9);
     border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
-    background: rgba(10,10,10,0.8);
-    backdrop-filter: blur(10px);
     z-index: 100;
-}
-
-.nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.logo {
-    font-family: 'Syncopate', sans-serif;
-    font-weight: 700;
+    font-family: 'Fira Code', monospace;
     font-size: 0.8rem;
-    letter-spacing: 2px;
 }
 
-.system-status {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--accent);
+.status-group .blink {
+    color: var(--primary);
+    animation: pulse 1s infinite;
 }
 
-.dot {
-    display: inline-block;
-    width: 6px; height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
-    margin-right: 5px;
-    box-shadow: 0 0 10px var(--accent);
+.links a {
+    color: var(--text);
+    text-decoration: none;
+    margin-left: 15px;
+    transition: 0.3s;
 }
 
-/* --- HERO SECTION --- */
-.master-header {
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
-    padding: 60px 5%;
+.links a:hover { color: var(--primary); }
+
+/* --- HERO --- */
+.terminal-hero {
+    padding: 80px 5%;
+    border-bottom: 1px solid var(--border);
 }
 
-.hero-box {
-    max-width: 800px;
-}
-
-.pre-title {
-    font-family: 'Space Mono', monospace;
-    color: var(--accent);
-    font-size: 0.8rem;
+.cmd {
+    font-family: 'Fira Code', monospace;
+    color: var(--primary);
     margin-bottom: 10px;
 }
 
 h1 {
-    font-family: 'Syncopate', sans-serif;
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    line-height: 0.9;
-    letter-spacing: -2px;
-    margin-bottom: 30px;
+    font-family: 'JetBrains Mono', monospace;
+    /* Ajuste responsivo para que no se salga nunca */
+    font-size: clamp(2rem, 12vw, 5rem);
+    line-height: 1;
+    text-transform: uppercase;
+    word-break: break-word; /* Evita que el texto largo se salga */
 }
 
-.glitch-text {
+h1 span {
     color: transparent;
-    -webkit-text-stroke: 1px var(--text);
+    -webkit-text-stroke: 1px var(--primary);
 }
 
-.hero-line {
-    width: 100px;
-    height: 4px;
-    background: var(--accent);
-    margin-bottom: 30px;
+.console-output {
+    margin-top: 20px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: #666;
 }
 
-.description {
-    font-size: 1.2rem;
-    color: var(--sub);
-    max-width: 500px;
+/* --- DATA VAULT (CONTENIDO) --- */
+.data-vault {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-/* --- GRID DE TARJETAS (Papeada total) --- */
-.content-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    padding: 0 5% 100px 5%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.tech-card {
-    position: relative;
-    background: var(--card);
+.data-block {
+    background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.tech-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-}
-
-/* Número de paso en el fondo */
-.tech-card::before {
-    content: attr(data-step);
-    position: absolute;
-    top: -20px;
-    right: -10px;
-    font-size: 8rem;
-    font-family: 'Syncopate', sans-serif;
-    font-weight: 900;
-    color: rgba(255,255,255,0.03);
-    z-index: 0;
-}
-
-.card-inner {
     padding: 40px;
-    position: relative;
-    z-index: 1;
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 40px;
+    position: relative;
+    border-left: 4px solid var(--primary);
 }
 
-.tag {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--accent);
-    background: rgba(0,255,136,0.1);
-    padding: 4px 10px;
-    border-radius: 2px;
-}
-
-.year {
-    font-family: 'Syncopate', sans-serif;
+.block-id {
+    position: absolute;
+    top: 0; right: 0;
+    background: var(--primary);
+    color: #000;
+    font-weight: bold;
+    font-family: 'Fira Code', monospace;
+    padding: 5px 15px;
     font-size: 0.8rem;
-    color: var(--sub);
 }
 
 h2 {
-    font-family: 'Syncopate', sans-serif;
-    font-size: 1.4rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.8rem;
     margin-bottom: 20px;
-    letter-spacing: 1px;
+    color: var(--primary);
 }
 
-p {
-    color: var(--sub);
+.deep-info {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px dashed #333;
+}
+
+h3 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
     font-size: 0.95rem;
-    margin-bottom: 30px;
+    color: #aaa;
 }
 
-.tech-specs {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.tech-specs span {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
-    border: 1px solid var(--border);
-    padding: 5px 10px;
-    color: var(--sub);
-}
-
-/* Tarjeta Destacada IA */
-.tech-card.highlight {
-    background: linear-gradient(145deg, #141414, #1a1a1a);
-    border: 1px solid rgba(0,255,136,0.3);
+ul li::before {
+    content: '>>';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
 }
 
 /* --- FOOTER --- */
-.main-footer {
-    padding: 60px 5%;
-    border-top: 1px solid var(--border);
+.hacker-footer {
     text-align: center;
-}
-
-.footer-wrap {
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.footer-wrap p {
-    font-family: 'Space Mono', monospace;
-    letter-spacing: 5px;
+    padding: 40px;
+    font-family: 'Fira Code', monospace;
     font-size: 0.7rem;
+    color: #444;
 }
 
-.footer-decor {
-    width: 50px;
-    height: 1px;
-    background: var(--sub);
-    margin: 20px auto;
+/* --- ANIMACIONES --- */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
 }
 
-/* --- MOBILE OPTIMIZATION (Android/iOS) --- */
-@media (max-width: 768px) {
-    .master-header {
-        min-height: 50vh;
-        padding-top: 100px;
-    }
-
-    h1 {
-        font-size: 3rem;
-    }
-
-    .content-grid {
-        grid-template-columns: 1fr; /* Una columna en móvil */
-        padding: 0 20px 60px 20px;
-    }
-
-    .tech-card {
-        margin-bottom: 10px;
-    }
-
-    .card-inner {
-        padding: 30px; /* Menos padding en móvil para no apretar el texto */
-    }
+/* --- MEDIA QUERIES PARA CELULAR --- */
+@media (max-width: 600px) {
+    .hacker-nav .links { display: none; } /* Ocultamos links en pantallas muy peques para evitar desorden */
+    .data-block { padding: 25px; }
+    h2 { font-size: 1.4rem; }
 }
