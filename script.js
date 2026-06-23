@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   
-  // Detectar si el usuario prefiere reducir las animaciones por hardware
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ==========================
-     ANIMACIONES DE APARICIÓN (REVEAL)
+     INTERSECTION OBSERVER (REVEAL ANIMATION)
      ========================== */
   const reveals = document.querySelectorAll(".reveal");
 
@@ -12,12 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        observer.unobserve(entry.target); // Detiene la observación una vez se muestra
+        observer.unobserve(entry.target);
       }
     });
   }, {
-    threshold: 0.1,
-    rootMargin: "0px 0px -5% 0px"
+    threshold: 0.08,             // Se activa un poco antes para mayor fluidez en móvil
+    rootMargin: "0px 0px -8% 0px"
   });
 
   reveals.forEach(element => {
@@ -25,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ==========================
-     EFECTO GLOW INTERACTIVO EN TARJETAS
+     CARD GLOW EFFECT
      ========================== */
   const cards = document.querySelectorAll(".section-box");
 
@@ -41,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ==========================
-     BARRA DE PROGRESO DE LECTURA SUPERIOR
+     BARRA DE PROGRESO DE LECTURA
      ========================== */
   const progress = document.createElement("div");
   progress.style.position = "fixed";
@@ -57,29 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", () => {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const percentage = (scrollTop / docHeight) * 100;
-    progress.style.width = `${percentage}%`;
+    if (docHeight > 0) {
+      const percentage = (scrollTop / docHeight) * 100;
+      progress.style.width = `${percentage}%`;
+    }
   });
-
-  /* ==========================
-     DETECTOR DE SECCIÓN ACTIVA
-     ========================== */
-  const sections = document.querySelectorAll(".panel");
-
-  const sectionObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        sections.forEach(panel => panel.classList.remove("active"));
-        entry.target.classList.add("active");
-      }
-    });
-  }, {
-    threshold: 0.3
-  });
-
-  sections.forEach(section => {
-    sectionObserver.observe(section);
-  });
-
-  console.log("%cGalaxy A36 5G Review - Cargada correctamente", "color:#ff7a1a; font-size:14px; font-weight:bold;");
 });
