@@ -4,49 +4,39 @@
   box-sizing: border-box;
 }
 
-:root {
-  --bg: #070707;
-  --bg-soft: #101010;
-  --panel: rgba(18, 18, 18, 0.82);
-  --panel-strong: rgba(28, 28, 28, 0.92);
-  --text: #f3f0ea;
-  --muted: #b8b0a8;
-  --blood: #5b0f16;
-  --blood-2: #7a121d;
-  --orange: #ff7a1a;
-  --orange-soft: rgba(255, 122, 26, 0.14);
-  --line: rgba(255, 255, 255, 0.08);
-  --shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
-  --radius: 24px;
-  --radius-sm: 16px;
-  --font: 'Inter', sans-serif;
-}
-
 html {
   scroll-behavior: smooth;
-  background: var(--bg);
 }
 
 body {
-  font-family: var(--font);
-  color: var(--text);
-  background:
-    radial-gradient(circle at top, rgba(122, 18, 29, 0.18), transparent 34%),
-    radial-gradient(circle at bottom right, rgba(255, 122, 26, 0.10), transparent 28%),
-    linear-gradient(180deg, #050505 0%, #0b0b0b 45%, #070707 100%);
-  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #070707;
+  color: #f4eee8;
   overflow-x: hidden;
 }
 
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
-  pointer-events: none;
-  background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background:
+    radial-gradient(circle at top, rgba(122, 18, 29, 0.22), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(255, 122, 26, 0.10), transparent 30%),
+    linear-gradient(180deg, #050505 0%, #0b0b0b 45%, #070707 100%);
+  z-index: -3;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 72px 72px;
-  opacity: 0.18;
-  mask-image: radial-gradient(circle at center, black 35%, transparent 100%);
+  opacity: 0.12;
+  z-index: -2;
+  pointer-events: none;
 }
 
 .page {
@@ -60,23 +50,23 @@ body::before {
   align-items: center;
   justify-content: center;
   padding: 5rem 1.25rem;
-  position: relative;
   scroll-snap-align: start;
+  position: relative;
 }
 
 .hero {
-  text-align: center;
   overflow: hidden;
+  text-align: center;
 }
 
-.hero::after {
-  content: '';
+.hero::before {
+  content: "";
   position: absolute;
-  width: 520px;
-  height: 520px;
+  width: min(700px, 85vw);
+  aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(91, 15, 22, 0.35) 0%, rgba(91, 15, 22, 0.08) 34%, transparent 70%);
-  filter: blur(12px);
+  background: radial-gradient(circle, rgba(91, 15, 22, 0.38) 0%, rgba(91, 15, 22, 0.08) 34%, transparent 72%);
+  filter: blur(10px);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -87,52 +77,69 @@ body::before {
 .section-box {
   position: relative;
   z-index: 1;
-  width: min(920px, 100%);
-  background: linear-gradient(180deg, rgba(22, 22, 22, 0.94), rgba(12, 12, 12, 0.88));
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
+  width: min(940px, 100%);
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.94), rgba(11, 11, 11, 0.88));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(14px);
-  border-radius: var(--radius);
+  border-radius: 24px;
+  color: #f4eee8;
 }
 
 .hero-content {
-  padding: clamp(2.5rem, 5vw, 4.8rem);
+  padding: clamp(2.5rem, 5vw, 5rem);
 }
 
 .section-box {
   padding: clamp(2rem, 4vw, 3.5rem);
-  max-width: 860px;
+  border-left: 4px solid #7a121d;
+  overflow: hidden;
+}
+
+.section-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 122, 26, 0.06) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+.verdict {
+  border-left-color: #ff7a1a;
 }
 
 .eyebrow {
-  color: var(--orange);
+  color: #ff7a1a;
   letter-spacing: 0.34em;
   font-size: 0.76rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.15rem;
 }
 
-h1 {
+.hero h1 {
   font-size: clamp(3rem, 8vw, 6.5rem);
   line-height: 0.95;
   letter-spacing: -0.06em;
   margin-bottom: 1rem;
   text-wrap: balance;
+  color: #fff;
 }
 
-h2 {
+.section-box h2 {
   font-size: clamp(1.8rem, 3vw, 3rem);
   line-height: 1.05;
-  margin-bottom: 1rem;
   letter-spacing: -0.04em;
+  margin-bottom: 1rem;
+  color: #fff;
 }
 
 .subtitle,
 .section-box p {
-  color: var(--muted);
+  color: #b8b0a8;
   font-size: clamp(1rem, 1.6vw, 1.15rem);
   line-height: 1.8;
+  max-width: 70ch;
 }
 
 .hero-tags {
@@ -152,35 +159,10 @@ h2 {
   font-size: 0.9rem;
 }
 
-.section-box {
-  border-left: 4px solid var(--blood-2);
-  position: relative;
-  overflow: hidden;
-}
-
-.section-box::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent 0%, rgba(255, 122, 26, 0.06) 50%, transparent 100%);
-  opacity: 0.75;
-  pointer-events: none;
-}
-
-.section-box h2,
-.section-box p {
-  position: relative;
-  z-index: 1;
-}
-
-.verdict {
-  border-left-color: var(--orange);
-}
-
 .reveal {
   opacity: 0;
   transform: translateY(42px) scale(0.985);
-  transition: opacity 0.85s ease, transform 0.85s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .reveal.visible {
@@ -190,7 +172,7 @@ h2 {
 
 ::selection {
   background: rgba(255, 122, 26, 0.35);
-  color: white;
+  color: #fff;
 }
 
 ::-webkit-scrollbar {
@@ -202,7 +184,7 @@ h2 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--blood-2), var(--orange));
+  background: linear-gradient(180deg, #7a121d, #ff7a1a);
   border-radius: 999px;
 }
 
