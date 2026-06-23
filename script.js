@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
   /* ==========================
-     INTERSECTION OBSERVER (REVEAL ANIMATION)
+     ANIMACIONES DE APARICIÓN FLUIDA
      ========================== */
   const reveals = document.querySelectorAll(".reveal");
 
@@ -15,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }, {
-    threshold: 0.08,             // Se activa un poco antes para mayor fluidez en móvil
-    rootMargin: "0px 0px -8% 0px"
+    threshold: 0.05, // Se activa rápido al asomarse para que responda al instante
+    rootMargin: "0px 0px -5% 0px"
   });
 
   reveals.forEach(element => {
@@ -24,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ==========================
-     CARD GLOW EFFECT
+     EFECTO GLOW INTERACTIVO (MOUSE)
      ========================== */
   const cards = document.querySelectorAll(".section-box");
 
